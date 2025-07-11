@@ -7,6 +7,127 @@
 
 <h1>wingusMckDinglepringus</h1>
 <p>This is a paragraph.</p>
+// Meme Character Page: PringusMckdinglenut the Great
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { AlertCircle, Sparkles, Laugh, ImageIcon, Volume2 } from "lucide-react";
+
+const memeQuotes = [
+  "When life gives you lemons, throw them at normies!",
+  "I speak fluent meme and sarcasm.",
+  "404: Seriousness not found.",
+  "Eat. Sleep. Meme. Repeat."
+];
+
+export default function MemeCharacterPage() {
+  const [quote, setQuote] = React.useState(memeQuotes[0]);
+
+  const handleNewQuote = () => {
+    const random = Math.floor(Math.random() * memeQuotes.length);
+    setQuote(memeQuotes[random]);
+  };
+
+  const playSound = () => {
+    const audio = new Audio("https://www.myinstants.com/media/sounds/vine-boom.mp3");
+    audio.play();
+  };
+
+  return (
+    <div className="min-h-screen bg-yellow-100 text-center p-6 font-mono">
+      <h1 className="text-5xl font-extrabold text-pink-600 animate-bounce">
+        👑 PringusMckdinglenut the Great 👑
+      </h1>
+      <p className="text-lg mt-2 text-gray-700 italic">
+        Lord of Laughter, Duke of Dankness, Meme Supreme since 1337
+      </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        <Card className="bg-white shadow-lg border-dashed border-4 border-pink-400">
+          <CardContent className="p-4">
+            <Laugh className="mx-auto text-yellow-500 w-10 h-10 animate-spin" />
+            <h2 className="text-2xl font-bold mt-4">Origin Story</h2>
+            <p className="mt-2">
+              Born from a cursed bag of Doritos and a Reddit thread gone rogue,
+              PringusMckdinglenut rose from the digital ashes to spread chaotic
+              giggles worldwide.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-white shadow-lg border-double border-4 border-yellow-300">
+          <CardContent className="p-4">
+            <Sparkles className="mx-auto text-indigo-500 w-10 h-10 animate-pulse" />
+            <h2 className="text-2xl font-bold mt-4">Special Abilities</h2>
+            <ul className="list-disc mt-2 ml-6 text-left">
+              <li>Dank Beam: Stuns enemies with pure meme energy</li>
+              <li>GigaChad Flex: Gains +420 charisma</li>
+              <li>Rage Quit Summon: Summons salty opponents to rage quit instantly</li>
+            </ul>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-white shadow-lg border-4 border-dotted border-green-400">
+          <CardContent className="p-4">
+            <AlertCircle className="mx-auto text-red-500 w-10 h-10 animate-bounce" />
+            <h2 className="text-2xl font-bold mt-4">Weaknesses</h2>
+            <ul className="list-disc mt-2 ml-6 text-left">
+              <li>Outdated memes</li>
+              <li>Serious conversations</li>
+              <li>High school group projects</li>
+            </ul>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Meme Quote Generator */}
+      <div className="mt-10 bg-white shadow-md p-6 rounded-xl max-w-xl mx-auto border-4 border-blue-400">
+        <h2 className="text-2xl font-bold mb-4">🗨️ Meme Quote of Wisdom</h2>
+        <p className="text-lg italic">{quote}</p>
+        <Button onClick={handleNewQuote} className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full">
+          New Quote
+        </Button>
+      </div>
+
+      {/* Meme Image Gallery */}
+      <div className="mt-12">
+        <h2 className="text-3xl font-bold mb-6">📸 Meme Gallery</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <img src="https://i.imgflip.com/5txx4f.jpg" alt="Meme 1" className="rounded-xl shadow-lg" />
+          <img src="https://i.imgflip.com/30b1gx.jpg" alt="Meme 2" className="rounded-xl shadow-lg" />
+          <img src="https://i.imgflip.com/4t0m5.jpg" alt="Meme 3" className="rounded-xl shadow-lg" />
+        </div>
+      </div>
+
+      {/* Meme Sound Button */}
+      <div className="mt-12">
+        <h2 className="text-2xl font-bold">🔊 Meme Soundboard</h2>
+        <Button onClick={playSound} className="mt-4 bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full">
+          <Volume2 className="inline-block mr-2" />Play Vine Boom Sound
+        </Button>
+      </div>
+
+      <div className="mt-16">
+        <Button className="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 text-lg rounded-full animate-wiggle">
+          Summon the Meme Lord
+        </Button>
+      </div>
+    </div>
+  );
+}
+
+// Custom animation
+const style = document.createElement("style");
+style.innerHTML = `
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+  }
+  .animate-wiggle {
+    animation: wiggle 0.5s ease-in-out infinite;
+  }
+`;
+document.head.appendChild(style);
 
 </body>
 </html>
